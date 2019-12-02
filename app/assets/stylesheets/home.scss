@@ -1,0 +1,177 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+th{
+    width:150px; height:150px;
+    margin:5px; padding:10px; 
+    text-align:center;
+    border-radius: 50%;
+    vertical-align : top;
+    background-color: rgb(226, 226, 226);
+}
+
+th:nth-child(1) {
+  background-color:  rgb(245, 11, 50);
+  color: #ffffff;
+ 
+}
+
+th:nth-child(7) {
+  background-color: rgb(7, 52, 252);
+  color: #ffffff;
+  
+}
+
+td:nth-child(1) {
+  background-color:  rgb(245, 11, 50);
+  color: #ffffff;
+  
+}
+
+td:nth-child(1) a{
+  color: #ffffff;
+  
+}
+td:nth-child(7) a{
+  color: #ffffff;
+  
+}
+
+td:nth-child(7) {
+  background-color: rgb(7, 52, 252);
+  color: #ffffff;
+  
+}
+
+
+td:nth-child(1)  p{
+  background-color: transparent;
+  
+}
+
+
+td:nth-child(7)  p{
+  background-color: transparent;
+  
+}
+
+td{
+    text-align:center;
+    width:150px; height:150px;
+    margin:5px; padding:10px; 
+    border-radius: 50%;    
+    vertical-align : top;
+    background-color: rgb(226, 226, 226);
+}
+
+
+tr{
+  font-size: 30px;
+  
+}
+
+.button > input{
+  height:10px;
+  width:30px;
+  display: inline-block;
+  
+  background-color: #ffffff;
+}
+
+
+
+.year {
+  position: relative;
+  background-color: rgb(255, 0, 43);
+  border-radius: 50%;/* ←円を作る */
+  right: 150px;
+  bottom: 650px;
+  text-align: center;
+  height: 500px;
+  width: 500px;
+}
+
+.year p{
+  position: relative;
+  font-size: 80px;
+  top: 250px;
+  left: 20px;
+  color: #ffffff;
+}
+.month p{
+  position: relative;
+  font-size: 60px;
+  top: 20%;
+  color: #ffffff;
+}
+
+
+.month {
+  position: relative;
+  background-color: rgb(36, 248, 64);
+  border-radius: 50%;/* ←円を作る */
+  bottom: 900px;
+  left: 220px;
+  text-align: center;
+  height: 250px;
+  width: 250px;
+}
+
+.data{
+  padding-top: 100px;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 200px;;
+}
+
+.user {
+  position: relative;
+  background-color: rgb(237, 253, 4);
+  border-radius: 50%;/* ←円を作る */
+  bottom: 150px;
+  left: 600px;
+  text-align: center;
+  height: 400px;
+  width: 400px;
+  
+}
+.user p{
+  position: relative;
+  font-size: 35px;
+  top: 230px;
+  left: 10px;
+  color: black;
+  margin: 0 0;
+}
+
+table, th, td {
+  border: none;
+}
+
+table{
+  border-collapse: separate;
+  border-spacing: 8px;
+  padding-top: 0px;
+  padding-bottom: 50px;
+}
+
+td > a{
+  color: black;
+  font-size: 15px;
+}
+
+
+
+td > p{
+  color: black;
+  font-size: 15px;
+  margin: 0 0;
+  background-color: transparent;
+}
+
+.day{
+  font-size: 30px;
+}

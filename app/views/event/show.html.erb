@@ -1,0 +1,19 @@
+<h2><%= @title.start_date.strftime("%d日")%></h2>
+<% @event.each do |event|%>
+  <% @user.each do |user|%>
+    <% if event.user_id == user.id then %>
+      イベント: <%= event.event%><br>
+      日付　　: <%= event.start_date.strftime("%Y年%m月%d日")%><br>
+      時間　　: <% if event.time %>
+               <%= event.time.strftime("%H:%M")%>
+               <% else %>
+               設定されていません。
+               <% end %><br><br>
+      詳細<br>
+      <%= event.description%><br>
+      <%= link_to("編集", "/event/#{event.id}/edit")%>　
+      <%= link_to("削除", "/event/#{event.id}/destroy", {method:"post"})%><br><br>
+    <% end %>
+  <% end%>
+<% end %>
+<%= link_to("戻る", "/home/top")%>　

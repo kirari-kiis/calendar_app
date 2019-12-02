@@ -1,0 +1,80 @@
+
+  <div class="data">
+    <% today = Date.today%>
+    <!-- <div class="user"><p><%= current_user.name%></p></div> -->
+    <div class="user"><p>Your schedule</p></div>
+    <!-- <h1 id="year" style="width: 150px; height: 150px; margin: 0;" ><%= today.strftime("%Y") %></h1> -->
+    <!-- <h1 id="month" style="width: 100px; height: 100px; margin: 0; " ><%= today.strftime("%m") %></h1> -->
+    <div class="year">
+      <p><%= today.strftime("%Y") %></p>
+    </div>
+    <div class="month">
+      <p><%= today.strftime("%m") %></p>
+    </div>
+  </div>
+<%= link_to("予定追加", "/event/post")%><br><br>
+<% today = Date.today%><!--  today = Date.today.nextmonth -->
+
+<% if params[:last_month] != nil then %>
+  <% today = Date.today.last_month %>
+<% end %>
+<% if params[:next_month] != nil then %>
+  <% today = Date.today.next_month %>
+<% end %>
+
+<table border="none" >
+  <!-- <caption><%= today.strftime("%Y年%m月") %></caption> <!--today.strftime("%Y年%m月")-->
+
+  <div class="button">
+  <%= form_tag("/home/top/#{current_user.id}") do%>
+    <input type="submit" name="last_month" value="◀︎" style="border:none">
+    <% if params[:last_month] != nil || params[:next_month] != nil then %>
+      <input type="submit" name="now_month" value="今月" >
+    <% end %>
+    <input type="submit" name="next_month" value="▶︎" style="border:none">
+  <% end %>
+  </div>
+
+  <tr>
+    <th>sun</th>
+    <th>mon</th>
+    <th>tue</th>
+    <th>wed</th>
+    <th>thr</th>
+    <th>fry</th>
+    <th>sat</th>
+  </tr>
+
+<% month = today.month%> <!-- today.strftime('%m') -->
+
+
+<% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
+
+<% 1.upto(5).each do|i|%>
+  <tr>
+  <% (d..d.end_of_week(:sunday)).each do|c|%>
+    <td>
+      <%= (c.month == month)? c.strftime('%d'): "  "%><br>
+
+      <% @events.each do |event|%>
+        <% if event.start_date.strftime("%Y-%m-%d") == c.strftime("%Y-%m-%d") then %>
+          <%= link_to("#{event.event}", "/event/#{event.start_date}/#{event.user_id}/show") %><br>
+        <% end %>
+      <% end %>
+    </td>
+  <% end %>
+  </tr>
+
+    <% d = d + 1.week %>
+<% end %>
+</table>
+
+
+<!--<%@events.each do |event| %>
+<%= event.event%>,
+<%= event.start_date%>,
+<%= event.description%>,
+<%= event.time%>,
+<%= event.user_id%><br>
+<% end %>
+-->

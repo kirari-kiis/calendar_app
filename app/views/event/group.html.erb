@@ -1,0 +1,109 @@
+
+  <div class="data1">
+    <% today = Date.today%>
+    <div class="user1"><p>Group schedule</p></div>
+    <div class="year1">
+      <p><%= today.strftime("%Y") %></p>
+    </div>
+    <div class="month1">
+      <p><%= today.strftime("%m") %></p>
+    </div>
+  </div>
+<!--  today = Date.today.nextmonth -->
+<% free_user_id = []%>
+<% i = 0 %>
+<% @users.each do |user| %>
+  <% free_user_id.push(user.id)%>
+<% end %>
+<% max = free_user_id.count %>
+
+<% @events.each do |evant|%>
+  <% if evant.start_date == today then %>
+    <% if free_user_id.include?(evant.user_id) then %>
+      <% user = User.find_by(id: evant.user_id)%>
+      <% free_user_id.delete(user.id)%>
+      <% i = i + 1 %>
+    <% end %>
+  <% end %>
+<% end %>
+<div class="messeage">
+<% if i == 0 then %>
+  <font color="green">今日はみんなの予定が空いています！！</font>
+<% elsif i == max %>
+  <font color="blue">今日はみんな予定があるそうです。</font>
+<% else %>
+  今日は<br>
+  <% free_user_id.each do |free_user_id| %>
+    <% free_user_name = User.find_by(id: free_user_id)%>
+      <font color="orange"><%=  free_user_name.name %></font>,
+  <% end %>
+  の予定が空いています！
+<% end %>
+</div>
+<table border="none">
+
+  <tr>
+    <th>sun</th>
+    <th>mon</th>
+    <th>tue</th>
+    <th>wed</th>
+    <th>thr</th>
+    <th>fry</th>
+    <th>sat</th>
+  </tr>
+
+<% month = today.strftime('%m')%>
+<% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
+
+<% 1.upto(5).each do|i|%>
+  <tr>
+  <% (d..d.end_of_week(:sunday)).each do|c|%>
+  <% array = []%>
+  <% busy = [] %>
+    <td>
+      <%= (c.strftime('%m') == month)? c.strftime('%d'): "  "%><br>
+
+      <% @events.each do |event| %>
+          <% if event.start_date.strftime("%Y-%m-%d") == c.strftime("%Y-%m-%d") then %>
+            <% @users.each do |user|%>
+              <% if user.id == event.user_id then %>
+                <% array.push(user.name) %>
+                <% busy = array.uniq%>
+              <% end %>
+            <% end %>
+          <% end %>
+      <% end %>
+
+      <% count =busy.count%>
+
+
+      <% if c.strftime('%m') == month then %>
+        <% if count == 0 then %>
+          <p class="free">全員 暇!!!!</p>
+        <% elsif count <= 1 %>
+          <% busy.each do |busy|%>
+            <p id="1" color="red"><%= busy %></p>
+          <% end %>
+        <% elsif count <= 2 %>
+          <% busy.each do |busy_user|%>
+            <p id="2" color="blue"><%= busy_user %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
+    </td>
+  <% end %>
+  </tr>
+
+    <% d = d + 1.week %>
+<% end %>
+
+ <script type="text/javascript">
+  $(function() {
+$('td:has(.free)').css({background:'yellow'});
+$("td:has(.free)").css({color:'black'});
+$(".free").css({color:'black'})
+});
+ </script>
+</table>

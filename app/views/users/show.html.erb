@@ -1,0 +1,35 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+
+<% today = Date.today%>
+<% start_date = today.beginning_of_month %>
+<% start_int = start_date.day %>
+<% end_date = today.end_of_month%>
+<% end_int = end_date.day %>
+
+<% free = [] %>
+<% free_date = [] %>
+
+<% while  start_int <= end_int do %>
+  <% @events.each do |event|%>
+    <% user_event = event.start_date%>
+    <% if user_event.day != start_int then %>
+      <% free.push(start_int) %>
+      <% free_date = free.uniq%>
+    <% end %>
+  <% end %>
+  <%  start_int = start_int + 1%>
+<% end %>
+
+<% free_date.each do |date|%>
+  <%= date %><br>
+<% end %>

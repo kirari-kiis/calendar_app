@@ -1,0 +1,67 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ #logo{
+     color: black;
+     font-family: 'Montserrat', sans-serif;
+ }
+
+ #menu a{
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+ }
+
+ /*body{
+     padding-bottom: 60px;
+     padding-top: 0;
+     top: 0px;
+     left: 0px;
+     opacity: 0.5;
+     background: url('patter.png') 0% 0% no-repeat padding-box;
+     background-size: cover;
+     background-position: center center;
+     background-attachment: fixed;
+     background-repeat: no-repeat;
+    
+     
+ }*/
+
+ body {
+    position: relative;
+    padding: 0 0;
+  }
+  
+  body::before {
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: " ";
+    position: absolute;
+    background: url('patter.png') 0% 0% no-repeat padding-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    opacity: .3;  /* 透過度を適宜指定してください */
+    z-index: -1;
+    margin: 0;
+  }
+
+
+h1, h2, p, tr{
+    font-family: 'Montserrat', sans-serif;
+}
