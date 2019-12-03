@@ -10,23 +10,23 @@ th{
     text-align:center;
     border-radius: 50%;
     vertical-align : top;
-    background-color: rgb(226, 226, 226);
+    background-color: #c9c9c9;
 }
 
 th:nth-child(1) {
-  background-color:  rgb(245, 11, 50);
+  background-color: #e4c4db;
   color: #ffffff;
  
 }
 
 th:nth-child(7) {
-  background-color: rgb(7, 52, 252);
+  background-color: #b2d6d4;
   color: #ffffff;
   
 }
 
 td:nth-child(1) {
-  background-color:  rgb(245, 11, 50);
+  background-color:  #e4c4db;
   color: #ffffff;
   
 }
@@ -41,7 +41,7 @@ td:nth-child(7) a{
 }
 
 td:nth-child(7) {
-  background-color: rgb(7, 52, 252);
+  background-color: #b2d6d4;
   color: #ffffff;
   
 }
@@ -64,7 +64,7 @@ td{
     margin:5px; padding:10px; 
     border-radius: 50%;    
     vertical-align : top;
-    background-color: rgb(226, 226, 226);
+    background-color: #c9c9c9;
 }
 
 
@@ -85,7 +85,7 @@ tr{
 
 .year {
   position: relative;
-  background-color: rgb(255, 0, 43);
+  background-color: #44aeea;
   border-radius: 50%;/* ←円を作る */
   right: 150px;
   bottom: 650px;
@@ -111,7 +111,7 @@ tr{
 
 .month {
   position: relative;
-  background-color: rgb(36, 248, 64);
+  background-color: #b4cb32;
   border-radius: 50%;/* ←円を作る */
   bottom: 900px;
   left: 220px;
@@ -129,7 +129,7 @@ tr{
 
 .user {
   position: relative;
-  background-color: rgb(237, 253, 4);
+  background-color: #e3b3cd;
   border-radius: 50%;/* ←円を作る */
   bottom: 150px;
   left: 600px;
