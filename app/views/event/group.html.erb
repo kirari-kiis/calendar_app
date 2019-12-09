@@ -1,11 +1,8 @@
 
-  <div class="data1">
+  <div class="data">
     <% today = Date.today%>
-    <div class="user1"><p>Group schedule</p></div>
-    <div class="year1">
-      <p><%= today.strftime("%Y") %></p>
-    </div>
-    <div class="month1">
+
+    <div class="month">
       <p><%= today.strftime("%m") %></p>
     </div>
   </div>
@@ -26,21 +23,40 @@
     <% end %>
   <% end %>
 <% end %>
+<div class="english">
+<p id="eng">  </p>
+<script type="text/javascript">
+$(function() {
+  const month_english_list = ['January.','February','March','April','May','June','July','August','September','October','November','December'];
+  var date = new Date();
+  var month = date.getMonth();
+  var month_english =  month_english_list[month];
+  var eng = document.getElementById("eng");
+  eng.innerHTML = month_english;
+});
+</script>
+
+  <p id="year"><%= today.strftime("%Y") %></p>
+
+  <p id="user">Group schedule</p>
+</div>
 <div class="messeage">
 <% if i == 0 then %>
-  <font color="green">今日はみんなの予定が空いています！！</font>
+  <font color="green">今日はみんなの予定が空いています！！</font><br>
 <% elsif i == max %>
-  <font color="blue">今日はみんな予定があるそうです。</font>
+  <font color="blue">今日はみんな予定があるそうです。</font><br>
 <% else %>
   今日は<br>
   <% free_user_id.each do |free_user_id| %>
     <% free_user_name = User.find_by(id: free_user_id)%>
-      <font color="orange"><%=  free_user_name.name %></font>,
+      <font color="orange"><%=  free_user_name.name %></font><br>
   <% end %>
   の予定が空いています！
 <% end %>
 </div>
-<table border="none">
+
+
+<table border="none" class="top" cellspacing="3">
 
   <tr>
     <th>sun</th>
@@ -99,11 +115,16 @@
     <% d = d + 1.week %>
 <% end %>
 
- <script type="text/javascript">
+ <!-- <script type="text/javascript"> 
   $(function() {
-$('td:has(.free)').css({background:'yellow'});
-$("td:has(.free)").css({color:'black'});
-$(".free").css({color:'black'})
+$('td:has(.free)').css({background:'#63513D'});
+  if ("body:has(.darkmode)") {
+    $("td:has(.free)").css({color:'white'});
+    $(".free").css({color:'white'});
+  }else if("body:has(.lightmode)"){
+    $("td:has(.free)").css({color:'black'});
+    $(".free").css({color:'black'});
+  }
 });
- </script>
+</script> -->
 </table>

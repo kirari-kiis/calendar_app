@@ -2,110 +2,80 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-th:nth-child(1) > p{
-    background-color:  rgb(245, 11, 50);
-    color: #ffffff;
-  }
-  
-  th:nth-child(7)  > p{
-    background-color: rgb(7, 52, 252);
-    color: #ffffff;
-  }
-  
-td:nth-child(1)  > p{
-    background-color:  rgb(245, 11, 50);
-    color: #ffffff;
-  }
-  
-  
-  td:nth-child(7)  > p{
-    background-color: rgb(7, 52, 252);
-    color: #ffffff;
-  }
+th{
+  width:150px; height:100px;
+  margin:5px; padding:10px; 
+  text-align:center;
+  border-radius: 50%;
+  vertical-align : top;
+  // background-color: #c9c9c9;
+}
+
+th:nth-child(1) {
+// background-color: #e4c4db;
+//color: #ffffff;
+color: rgb(255,0,0, ); 
+}
+
+th:nth-child(7) {
+// background-color: #b2d6d4;
+//color: #ffffff;
+color: rgb(0,0,255, );
+}
+
+td:nth-child(1) {
+// background-color:  #e4c4db;
+//color: #ffffff;
+color: rgb(255,0,0, );
+}
+
+td:nth-child(1) a{
+// color: #ffffff;
+color: rgb(255,0,0, );
+}
+td:nth-child(7) a{
+// color: #ffffff;
+color: rgb(0,0,255, );
+}
+
+td:nth-child(7) {
+//background-color: #b2d6d4;
+//color: #ffffff;
+color: rgb(0,0,255, );
+}
 
 
-  td:nth-child(1)  > p{
-    
-    background-color: transparent;
-  }
-  
-  
-  td:nth-child(7)  > p{
-    
-    background-color: transparent;
-  }
-
-  .day p{
-    font-size: 30px;
+td:nth-child(1)  p{
+background-color: transparent;
 
 }
-  .year1 {
-    position: relative;
-    background-color: rgb(245, 11, 50);
-    border-radius: 50%;/* ←円を作る */
-    right: 150px;
-    bottom: 650px;
-    text-align: center;
-    height: 500px;
-    width: 500px;
-  }
-  
-  .year1 p{
-    position: relative;
-    font-size: 80px;
-    top: 250px;
-    left: 20px;
-    color: #ffffff;
-  }
-  .month1 p{
-    position: relative;
-    font-size: 60px;
-    top: 20%;
-    color: #ffffff;
-  }
-  
-  
-  .month1 {
-    position: relative;
-    background-color: rgb(36, 248, 64);
-    border-radius: 50%;/* ←円を作る */
-    bottom: 900px;
-    left: 220px;
-    text-align: center;
-    height: 250px;
-    width: 250px;
-  }
-  
-  .data1{
-    padding-top: 100px;
-    height: 300px;
-    margin: 0 auto;
-    margin-bottom: 200px;;
-  }
-  
-  .user1 {
-    position: relative;
-    background-color: rgb(237, 253, 4);
-    border-radius: 50%;/* ←円を作る */
-    bottom: 150px;
-    left: 600px;
-    text-align: center;
-    height: 400px;
-    width: 400px;
-    
-  }
-  .user1 p{
-    position: relative;
-    font-size: 35px;
-    top: 230px;
-    left: 10px;
-    color: black;
-    margin: 0 0;
-  }
+
+
+td:nth-child(7)  p{
+background-color: transparent;
+
+}
+
+td{
+  text-align:center;
+  width:150px; height:150px;
+  margin:5px; padding:10px; 
+  border-radius: 50%;    
+  vertical-align : top;
+  // background-color: #c9c9c9;
+}
+
+
+tr{
+font-size: 30px;
+// color: #ffffff;
+
+}
+
   
   .messeage{
       position: relative;
-      padding: 29px;
+      left: 7%;
   }
 
  .edit{
@@ -113,3 +83,18 @@ td:nth-child(1)  > p{
     padding-top: 100px;
     padding-bottom: 300px;
  }
+
+ .top{
+   position: relative;
+   padding-top: 30px;
+   bottom: 30px;
+   margin: 0 auto;
+ }
+
+ #1{
+   font-size: 10px;
+ }
+
+ #2{
+  font-size: 10px;
+}

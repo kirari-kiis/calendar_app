@@ -14,4 +14,8 @@
 //= require jquery
 //= require bootstrap
 //= require turbolinks
+//= require jquery.cookie
+//= require js.cookie
 //= require_tree .
+
+

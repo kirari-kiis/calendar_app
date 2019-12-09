@@ -5,45 +5,46 @@
 
 
 th{
-    width:150px; height:150px;
+    width:150px; height:100px;
     margin:5px; padding:10px; 
     text-align:center;
     border-radius: 50%;
     vertical-align : top;
-    background-color: #c9c9c9;
+    // background-color: #c9c9c9;
+    
 }
 
 th:nth-child(1) {
-  background-color: #e4c4db;
-  color: #ffffff;
- 
+  // background-color: #e4c4db;
+  //color: #ffffff;
+  color: rgba(255,0,0, 0.7);
 }
 
 th:nth-child(7) {
-  background-color: #b2d6d4;
-  color: #ffffff;
-  
+  // background-color: #b2d6d4;
+  //color: #ffffff;
+  color: rgba(0, 0, 255, 0.7);
 }
 
 td:nth-child(1) {
-  background-color:  #e4c4db;
-  color: #ffffff;
-  
+  // background-color:  #e4c4db;
+  //color: #ffffff;
+  color: rgba(255,0,0, 0.7);
 }
 
 td:nth-child(1) a{
-  color: #ffffff;
-  
+  // color: #ffffff;
+  color: rgba(255,0,0, 0.7);
 }
 td:nth-child(7) a{
-  color: #ffffff;
-  
+  // color: #ffffff;
+  color: rgba(0,0,255, 0.7);
 }
 
 td:nth-child(7) {
-  background-color: #b2d6d4;
-  color: #ffffff;
-  
+  //background-color: #b2d6d4;
+  //color: #ffffff;
+  color: rgba(0,0,255, 0.7);
 }
 
 
@@ -64,87 +65,29 @@ td{
     margin:5px; padding:10px; 
     border-radius: 50%;    
     vertical-align : top;
-    background-color: #c9c9c9;
+    // background-color: #c9c9c9;
+    font-family: 'Titillium Web', sans-serif, ;
 }
 
 
 tr{
   font-size: 30px;
-  
+  // color: #ffffff;
+  font-family: 'Titillium Web', sans-serif;
 }
 
-.button > input{
+.month_button > input{
   height:10px;
   width:30px;
   display: inline-block;
-  
+
   background-color: #ffffff;
 }
 
-
-
-.year {
+.month_button{
   position: relative;
-  background-color: #44aeea;
-  border-radius: 50%;/* ←円を作る */
-  right: 150px;
-  bottom: 650px;
-  text-align: center;
-  height: 500px;
-  width: 500px;
-}
-
-.year p{
-  position: relative;
-  font-size: 80px;
-  top: 250px;
-  left: 20px;
-  color: #ffffff;
-}
-.month p{
-  position: relative;
-  font-size: 60px;
-  top: 20%;
-  color: #ffffff;
-}
-
-
-.month {
-  position: relative;
-  background-color: #b4cb32;
-  border-radius: 50%;/* ←円を作る */
-  bottom: 900px;
-  left: 220px;
-  text-align: center;
-  height: 250px;
-  width: 250px;
-}
-
-.data{
-  padding-top: 100px;
-  height: 300px;
-  margin: 0 auto;
-  margin-bottom: 200px;;
-}
-
-.user {
-  position: relative;
-  background-color: #e3b3cd;
-  border-radius: 50%;/* ←円を作る */
-  bottom: 150px;
-  left: 600px;
-  text-align: center;
-  height: 400px;
-  width: 400px;
-  
-}
-.user p{
-  position: relative;
-  font-size: 35px;
-  top: 230px;
-  left: 10px;
-  color: black;
-  margin: 0 0;
+  clear: both;
+  left: 10%;
 }
 
 table, th, td {
@@ -154,19 +97,21 @@ table, th, td {
 table{
   border-collapse: separate;
   border-spacing: 8px;
-  padding-top: 0px;
+  padding-top: 20px;
   padding-bottom: 50px;
 }
 
 td > a{
-  color: black;
+  // color: #ffffff;
+ 
   font-size: 15px;
 }
 
 
 
 td > p{
-  color: black;
+  //color: #ffffff;
+  
   font-size: 15px;
   margin: 0 0;
   background-color: transparent;
@@ -175,3 +120,10 @@ td > p{
 .day{
   font-size: 30px;
 }
+
+.up{
+  position: relative;
+  bottom: 30px;
+  margin: 0 auto;
+}
+

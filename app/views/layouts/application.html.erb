@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:200&display=swap" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
@@ -8,14 +12,116 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
+   <% value = cookies[:myCookieName] %>
+   <% 'darkmode' if value == 'isActive'%>
+   <% value == 'isActive'? name = 'darkmode': name = 'lightmode'%>
+   <body class="<%= name %>">
 
-  <body>
+     <script type="text/javascript">
+      $(function() {
+    $('td:has(.free)').css({background:'#63513D'});
+      if ($('.darkmode').length) {
+        $("td:has(.free)").css({color:'black'});
+        $(".free").css({color:'black'});
+        $(".darkmode").css({background:'black'});
+        $(".navbar").css({background:'black'});
+        }else if($('.lightmode').length){
+        $("td:has(.free)").css({color:'white'});
+        $(".free").css({color:'white'});
+        $(".lightmode").css({background:'white'});
+        $(".navbar").css({background:'white'});
+        }
+    });
+     </script>
     <%= render 'layouts/header' %>
     <div class="container">
+
+        <div id="js-switch-mode" class="switch_mode">
+        </div>
+        <script>
+          if ($('.darkmode').length) {
+          function setMyCookie() {
+            myCookieVal = $('body').hasClass('darkmode') ? 'isActive' : 'notActive';
+            $.cookie('myCookieName', myCookieVal, { /*expires: 365,*/ path: '/' });
+            }
+            $("#js-switch-mode").html("<i class='fas fa-moon fa-2x'></i>");
+          }else if($('.lightmode').length){
+            function setMyCookie() {
+              myCookieVal = $('body').hasClass('lightmode') ? 'notActive' : 'isActive';
+              $.cookie('myCookieName', myCookieVal, { /*expires: 365,*/ path: '/' });
+            }
+            $("#js-switch-mode").html("<i class='far fa-moon fa-2x'></i>");
+          }
+          var flg = "off";
+          $("#js-switch-mode").click(function () {
+            if ($('.darkmode').length) {//class=darkmodeならば
+            $('body').removeClass("darkmode").addClass("lightmode");
+            $(this).removeClass("isActive").addClass("notActive");
+            $(this).html("<i class='far fa-moon fa-2x'></i>");
+            $(".free").css({color:'white'});
+            $("td:has(.free)").css({color:'white'});
+            $("body").css({background:'white'});
+            $(".navbar").css({background:'white'});
+          }else if ($('.lightmode').length) {
+            $('body').removeClass("lightmode").addClass("darkmode");
+            $(this).removeClass("notActive").addClass("isActive");
+            $(this).html("<i class='fas fa-moon fa-2x'></i>");
+            $(".free").css({color:'black'});
+            $("td:has(.free)").css({color:'black'});
+            $("body").css({background:'black'});
+            $(".navbar").css({background:'black'});
+            }
+            setMyCookie();
+          });
+
+
+        //   $("#js-switch-mode").click(function () {
+        //     var flg = "off";
+        //   $(this).toggleClass('is-active');
+        //   if(flg == "off"){
+        //     if ($('.darkmode').length) {
+        //       $(this).removeClass("darkmode").addClass("lightmode");
+        //       $(this).html("<i class='fas fa-moon fa-2x '></i>");
+        //       flg = "on";
+        //       $(".free").css({color:'white'});
+        //       $("td:has(.free)").css({color:'white'});
+        //       $("body").css({background:'white'});
+        //     }else{
+        //       $(this).removeClass("lightmode").addClass("darkmode");
+        //       $(this).html("<i class='far fa-moon fa-2x'></i>");
+        //       flg = "off";
+        //       $(".free").css({color:'black'});
+        //       $("td:has(.free)").css({color:'black'});
+        //       $("body").css({background:'black'});
+        //     }
+        //     setMyCookie();
+        //   }
+        // });
+        //
+        //
+        //   if ($('.lightmode').length){
+        //       $(this).removeClass("lightmode").addClass("darkmode");
+        //       $(this).html("<i class='fas fa-moon fa-2x '></i>");
+        //       flg = "on";
+        //       $(".free").css({color:'black'});
+        //       $("td:has(.free)").css({color:'black'});
+        //       $("body").css({background:'black'});
+        //     }else{
+        //       $(this).removeClass("darkmode").addClass("lightmode");
+        //       $(this).html("<i class='far fa-moon fa-2x'></i>");
+        //       flg = "off";
+        //       $(".free").css({color:'white'});
+        //       $("td:has(.free)").css({color:'white'});
+        //       $("body").css({background:'white'});
+        //     }
+        //     setMyCookie();
+        // }
+        </script>
+    </div>
       <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
-  
+
   </body>
 </html>

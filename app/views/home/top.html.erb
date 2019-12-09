@@ -2,16 +2,30 @@
   <div class="data">
     <% today = Date.today%>
     <!-- <div class="user"><p><%= current_user.name%></p></div> -->
-    <div class="user"><p>Your schedule</p></div>
+
     <!-- <h1 id="year" style="width: 150px; height: 150px; margin: 0;" ><%= today.strftime("%Y") %></h1> -->
     <!-- <h1 id="month" style="width: 100px; height: 100px; margin: 0; " ><%= today.strftime("%m") %></h1> -->
-    <div class="year">
-      <p><%= today.strftime("%Y") %></p>
-    </div>
     <div class="month">
       <p><%= today.strftime("%m") %></p>
     </div>
   </div>
+<div class="english">
+  <p id="eng">  </p>
+  <script type="text/javascript">
+  $(function() {
+    const month_english_list = ['January.','February','March','April','May','June','July','August','September','October','November','December'];
+    var date = new Date();
+    var month = date.getMonth();
+    var month_english =  month_english_list[month];
+    var eng = document.getElementById("eng");
+    eng.innerHTML = month_english;
+  });
+  </script>
+
+    <p id="year"><%= today.strftime("%Y") %></p>
+
+  <p id="user">Your schedule</p>
+</div>
 <%= link_to("予定追加", "/event/post")%><br><br>
 <% today = Date.today%><!--  today = Date.today.nextmonth -->
 
@@ -22,10 +36,10 @@
   <% today = Date.today.next_month %>
 <% end %>
 
-<table border="none" >
+<table border="none" class="up"　cellspacing="3">
   <!-- <caption><%= today.strftime("%Y年%m月") %></caption> <!--today.strftime("%Y年%m月")-->
 
-  <div class="button">
+  <div class="month_button">
   <%= form_tag("/home/top/#{current_user.id}") do%>
     <input type="submit" name="last_month" value="◀︎" style="border:none">
     <% if params[:last_month] != nil || params[:next_month] != nil then %>
