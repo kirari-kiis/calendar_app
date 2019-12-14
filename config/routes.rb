@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get 'event/:id/group_show' => 'event#group_show'
   get 'event/group_post' => 'event#group_post'
   post 'event/group_post_create' => 'event#group_post_create'
-  
+
+  post 'event/group/:id' => 'event#group'
   get 'event/group' => 'event#group'
   get 'users/new'
   post 'event/:id/destroy' => 'event#destroy'

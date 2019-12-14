@@ -13,6 +13,13 @@
 <% end %>
 <% max = free_user_id.count %>
 
+<% if params[:next_month] != nil then %>
+  <% today = Date.today.next_month %>
+<% end %>
+<% if params[:this_month] != nil then %>
+  <% today = Date.today %>
+<% end %>
+
 <% @events.each do |evant|%>
 <% if evant.start_date == today then %>
   <% if free_user_id.include?(evant.user_id) then %>
@@ -34,6 +41,15 @@ var eng = document.getElementById("eng");
 eng.innerHTML = month_english;
 });
 </script>
+
+<!--月の移動ボタン-->
+<%= form_tag("/event/group/#{current_user.id}") do%>
+  <% if params[:next_month] == nil then %>
+    <input type="submit" name="next_month" value="▶︎">
+  <% else %>
+    <input type="submit" name="this_month" value="◀︎">
+  <% end %>
+<% end %>
 
 <p id="year"><%= today.strftime("%Y") %></p>
 

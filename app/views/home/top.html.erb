@@ -27,13 +27,12 @@
   <p id="user">Your schedule</p>
 </div>
 <br><br><br>
-<% today = Date.today%><!--  today = Date.today.nextmonth -->
 
-<% if params[:last_month] != nil then %>
-  <% today = Date.today.last_month %>
-<% end %>
 <% if params[:next_month] != nil then %>
   <% today = Date.today.next_month %>
+<% end %>
+<% if params[:this_month] != nil then %>
+  <% today = Date.today %>
 <% end %>
 
 <table border="none" class="up"　cellspacing="3">
@@ -41,11 +40,11 @@
 
   <div class="month_button">
   <%= form_tag("/home/top/#{current_user.id}") do%>
-    <input type="submit" name="last_month" value="◀︎" style="border:none">
-    <% if params[:last_month] != nil || params[:next_month] != nil then %>
-      <input type="submit" name="now_month" value="今月" >
+    <% if params[:next_month] == nil then %>
+      <input type="submit" name="next_month" value="▶︎">
+    <% else %>
+      <input type="submit" name="this_month" value="◀︎">
     <% end %>
-    <input type="submit" name="next_month" value="▶︎" style="border:none">
   <% end %>
   </div>
 
