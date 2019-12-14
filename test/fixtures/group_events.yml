@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group_event: MyString
+  date: 2019-12-13
+  time: 2019-12-13 23:58:18
+  description: MyText
+
+two:
+  group_event: MyString
+  date: 2019-12-13
+  time: 2019-12-13 23:58:18
+  description: MyText

@@ -8,5 +8,5 @@
 詳細<br>
 <textarea name="description"><%= @event.description %></textarea><br><br>
 <input type="submit" value="変更する"><br>
-<%= link_to("戻る", "/event/#{@event.start_date}/show")%>
+<%= link_to("戻る", "/event/#{@event.start_date}/#{@event.user_id}/show")%>
 <% end %>

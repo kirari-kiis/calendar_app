@@ -1,0 +1,12 @@
+<br><br><br>
+<h2>編集</h2><br>
+<%= form_tag("/event/#{@group_event.id}/group_update") do%>
+予定
+<input type="text" name="group_event" value=<%= @group_event.group_event %>><br>
+<input type="date" name="date" value=<%= @group_event.date %>><br>
+<input type="time" name="time" value=<%= @group_event.time %>><br>
+詳細<br>
+<textarea name="description"><%= @group_event.description %></textarea><br><br>
+<input type="submit" value="変更する"><br>
+<%= link_to("戻る", "/event/#{@group_event.id}/group_show")%>
+<% end %>

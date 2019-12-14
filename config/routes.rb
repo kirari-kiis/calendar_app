@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  post 'event/join/:id' => 'event#join'
+  post 'event/:id/group_update' => 'event#group_update'
+  get 'event/:id/group_edit' => 'event#group_edit'
+  get 'event/:id/group_event_destroy' => 'event#group_event_destroy'
+  get 'event/:id/group_show' => 'event#group_show'
+  get 'event/group_post' => 'event#group_post'
+  post 'event/group_post_create' => 'event#group_post_create'
+  
   get 'event/group' => 'event#group'
   get 'users/new'
   post 'event/:id/destroy' => 'event#destroy'

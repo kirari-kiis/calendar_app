@@ -1,0 +1,31 @@
+<br><br><br>
+<h2><%= @group_event.date.strftime("%d日")%></h2>
+      イベント: <%= @group_event.group_event%><br>
+      日付　　: <%= @group_event.date.strftime("%Y年%m月%d日")%><br>
+      時間　　: <% if @group_event.time %>
+               <%= @group_event.time.strftime("%H:%M")%>
+               <% else %>
+               設定されていません。
+               <% end %><br><br>
+      詳細<br>
+      <%= @group_event.description%><br><br>
+
+      <font color="orange">参加者</font><br>
+      <% @events.each do |event|%>
+        <% if event.join == 1 then %>
+          <% @users.each do |user|%>
+            <% if user.id == event.user_id then %>
+              <%= user.name %><br>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <br>
+
+      <%= link_to("編集", "/event/#{@group_event.id}/group_edit")%>
+      <%= link_to("削除", "/event/#{@group_event.id}/group_event_destroy")%><br><br>
+
+      <%= form_tag("/event/join/#{@group_event.id}") do %>
+        <input type="submit" value="参加">
+      <% end %>
+<%= link_to("戻る", "/event/group")%>

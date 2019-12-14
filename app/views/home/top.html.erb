@@ -26,7 +26,7 @@
 
   <p id="user">Your schedule</p>
 </div>
-<%= link_to("予定追加", "/event/post")%><br><br>
+<br><br><br>
 <% today = Date.today%><!--  today = Date.today.nextmonth -->
 
 <% if params[:last_month] != nil then %>
@@ -68,7 +68,7 @@
   <tr>
   <% (d..d.end_of_week(:sunday)).each do|c|%>
     <td>
-      <%= (c.month == month)? c.strftime('%d'): "  "%><br>
+      <%= (c.month == month)? c.strftime('%-d'): "  "%><br>
 
       <% @events.each do |event|%>
         <% if event.start_date.strftime("%Y-%m-%d") == c.strftime("%Y-%m-%d") then %>

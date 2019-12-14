@@ -1,3 +1,4 @@
+<br><br><br>
 <h2><%= @title.start_date.strftime("%d日")%></h2>
 <% @event.each do |event|%>
   <% @user.each do |user|%>
@@ -10,7 +11,7 @@
                設定されていません。
                <% end %><br><br>
       詳細<br>
-      <%= event.description%><br>
+      <%= event.description%><br><br><br>
       <%= link_to("編集", "/event/#{event.id}/edit")%>　
       <%= link_to("削除", "/event/#{event.id}/destroy", {method:"post"})%><br><br>
     <% end %>
