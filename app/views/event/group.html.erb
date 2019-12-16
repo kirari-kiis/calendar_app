@@ -1,8 +1,15 @@
 <div class="data">
   <% today = Date.today%>
 
+  <% if params[:next_month] != nil then %>
+    <% today = Date.today.next_month %>
+  <% end %>
+  <% if params[:this_month] != nil then %>
+    <% today = Date.today %>
+  <% end %>
+
   <div class="month">
-    <p><%= today.strftime("%m") %></p>
+    <p><%= today.strftime("%-m") %></p>
   </div>
 </div>
 <!--  today = Date.today.nextmonth -->
@@ -13,12 +20,6 @@
 <% end %>
 <% max = free_user_id.count %>
 
-<% if params[:next_month] != nil then %>
-  <% today = Date.today.next_month %>
-<% end %>
-<% if params[:this_month] != nil then %>
-  <% today = Date.today %>
-<% end %>
 
 <% @events.each do |evant|%>
 <% if evant.start_date == today then %>
@@ -62,7 +63,9 @@ if($('.next').length){
 <p id="user">Group schedule</p>
 <!--月の移動ボタン-->
 <div class="month_button">
+  
 <%= form_tag("/event/group/#{current_user.id}") do%>
+  <input type="hidden" name="hidden">
   <% if params[:next_month] == nil then %>
     <input class="next" type="submit" name="next_month" value="▶︎">
   <% else %>
