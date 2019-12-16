@@ -8,10 +8,17 @@
     <% today = Date.today%>
     <!-- <div class="user"><p><%= current_user.name%></p></div> -->
 
+    <% if params[:next_month] != nil then %>
+      <% today = Date.today.next_month %>
+    <% end %>
+    <% if params[:this_month] != nil then %>
+      <% today = Date.today %>
+    <% end %>
+
     <!-- <h1 id="year" style="width: 150px; height: 150px; margin: 0;" ><%= today.strftime("%Y") %></h1> -->
     <!-- <h1 id="month" style="width: 100px; height: 100px; margin: 0; " ><%= today.strftime("%m") %></h1> -->
     <div class="month">
-      <p><%= today.strftime("%m") %></p>
+      <p><%= today.strftime("%-m") %></p>
     </div>
   </div>
 <div class="english">
@@ -19,27 +26,24 @@
 
   <p id="year"><%= today.strftime("%Y") %></p>
   <p id="user">Your schedule</p>
-  
 
-  
+
+
 </div>
 <br><br><br>
-
-<% if params[:next_month] != nil then %>
-  <% today = Date.today.next_month %>
-<% end %>
-<% if params[:this_month] != nil then %>
-  <% today = Date.today %>
-<% end %>
 
 <table border="none" class="up"　cellspacing="3">
   <!-- <caption><%= today.strftime("%Y年%m月") %></caption> <!--today.strftime("%Y年%m月")-->
 
   <div class="month_button">
   <%= form_tag("/home/top/#{current_user.id}") do%>
+    <input type="hidden" name="hidden">
     <% if params[:next_month] == nil then %>
       <input class="next" type="submit" name="next_month" value="▶︎">
-    <% else %>
+    <% end %>
+  <% end %>
+  <%= form_tag("/home/top/#{current_user.id}") do%>
+    <% if params[:next_month] != nil then %>
       <input class="th" type="submit" name="this_month" value="◀︎">
     <% end %>
   <% end %>
@@ -54,7 +58,7 @@
     var month_english =  month_english_list[month];
     var eng = document.getElementById("eng");
     eng.innerHTML = month_english;
-    
+
   }else{
     const month_english_list = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     var date = new Date();
