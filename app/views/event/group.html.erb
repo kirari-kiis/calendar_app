@@ -42,7 +42,13 @@ eng.innerHTML = month_english;
 });
 </script>
 
+
+
+
+<p id="year"><%= today.strftime("%Y") %></p>
+<p id="user">Group schedule</p>
 <!--月の移動ボタン-->
+<div class="month_button">
 <%= form_tag("/event/group/#{current_user.id}") do%>
   <% if params[:next_month] == nil then %>
     <input type="submit" name="next_month" value="▶︎">
@@ -50,10 +56,8 @@ eng.innerHTML = month_english;
     <input type="submit" name="this_month" value="◀︎">
   <% end %>
 <% end %>
+</div>
 
-<p id="year"><%= today.strftime("%Y") %></p>
-
-<p id="user">Group schedule</p>
 </div>
 <div class="messeage">
 <% if i == 0 then %>

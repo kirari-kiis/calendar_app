@@ -1,0 +1,17 @@
+current directory: /Users/kirari/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/duktape-2.3.0.0/ext/duktape
+/Users/kirari/.rbenv/versions/2.5.5/bin/ruby -r ./siteconf20190930-52705-1roiebp.rb extconf.rb
+checking for rb_sym2str()... yes
+creating Makefile
+
+current directory: /Users/kirari/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/duktape-2.3.0.0/ext/duktape
+make "DESTDIR=" clean
+
+current directory: /Users/kirari/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/duktape-2.3.0.0/ext/duktape
+make "DESTDIR="
+compiling duktape.c
+compiling duktape_ext.c
+linking shared-object duktape_ext.bundle
+
+current directory: /Users/kirari/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/duktape-2.3.0.0/ext/duktape
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 duktape_ext.bundle ./.gem.20190930-52705-1hetb60

@@ -1,4 +1,9 @@
 
+<head>
+
+
+
+</head>
   <div class="data">
     <% today = Date.today%>
     <!-- <div class="user"><p><%= current_user.name%></p></div> -->
@@ -11,20 +16,12 @@
   </div>
 <div class="english">
   <p id="eng">  </p>
-  <script type="text/javascript">
-  $(function() {
-    const month_english_list = ['January.','February','March','April','May','June','July','August','September','October','November','December'];
-    var date = new Date();
-    var month = date.getMonth();
-    var month_english =  month_english_list[month];
-    var eng = document.getElementById("eng");
-    eng.innerHTML = month_english;
-  });
-  </script>
 
-    <p id="year"><%= today.strftime("%Y") %></p>
-
+  <p id="year"><%= today.strftime("%Y") %></p>
   <p id="user">Your schedule</p>
+  
+
+  
 </div>
 <br><br><br>
 
@@ -41,12 +38,36 @@
   <div class="month_button">
   <%= form_tag("/home/top/#{current_user.id}") do%>
     <% if params[:next_month] == nil then %>
-      <input type="submit" name="next_month" value="▶︎">
+      <input class="next" type="submit" name="next_month" value="▶︎">
     <% else %>
-      <input type="submit" name="this_month" value="◀︎">
+      <input class="th" type="submit" name="this_month" value="◀︎">
     <% end %>
   <% end %>
   </div>
+
+  <script type="text/javascript">
+  $(function() {
+  if($('.next').length){
+    const month_english_list = ['January.','February','March','April','May','June','July','August','September','October','November','December'];
+    var date = new Date();
+    var month = date.getMonth();
+    var month_english =  month_english_list[month];
+    var eng = document.getElementById("eng");
+    eng.innerHTML = month_english;
+    
+  }else{
+    const month_english_list = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var date = new Date();
+    var month = date.getMonth()+1;
+    if(month == 12){
+      month = 0;
+    }
+    var month_english =  month_english_list[month];
+    var eng = document.getElementById("eng");
+    eng.innerHTML = month_english;
+  };
+  });
+  </script>
 
   <tr>
     <th>sun</th>
