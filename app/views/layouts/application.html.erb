@@ -5,9 +5,9 @@
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 <html>
   <head>
-    <title><%= full_title(yield(:title)) %></title>
+    <title>暇人 -HIMANCHU-</title>
     <%= csrf_meta_tags %>
-
+    <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -22,15 +22,14 @@
 
      <script type="text/javascript">
       $(function() {
-    $('td:has(.free)').css({background:'#63513D'});
+        $('td:has(.free)').css("border", "#63513D 1px solid");
       if ($('.darkmode').length) {
-        $("td:has(.free)").css({color:'black'});
-        $(".free").css({color:'black'});
+        
+        
         $(".darkmode").css({background:'black'});
         $(".navbar").css({background:'black'});
         }else if($('.lightmode').length){
-        $("td:has(.free)").css({color:'white'});
-        $(".free").css({color:'white'});
+        
         $(".lightmode").css({background:'white'});
         $(".navbar").css({background:'white'});
         }
@@ -61,16 +60,16 @@
             $('body').removeClass("darkmode").addClass("lightmode");
             $(this).removeClass("isActive").addClass("notActive");
             $(this).html("<i class='far fa-moon fa-2x'></i>");
-            $(".free").css({color:'white'});
-            $("td:has(.free)").css({color:'white'});
+            
+            
             $("body").css({background:'white'});
             $(".navbar").css({background:'white'});
           }else if ($('.lightmode').length) {
             $('body').removeClass("lightmode").addClass("darkmode");
             $(this).removeClass("notActive").addClass("isActive");
             $(this).html("<i class='fas fa-moon fa-2x'></i>");
-            $(".free").css({color:'black'});
-            $("td:has(.free)").css({color:'black'});
+            
+            
             $("body").css({background:'black'});
             $(".navbar").css({background:'black'});
             }

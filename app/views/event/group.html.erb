@@ -33,12 +33,25 @@
 <p id="eng">  </p>
 <script type="text/javascript">
 $(function() {
-const month_english_list = ['January.','February','March','April','May','June','July','August','September','October','November','December'];
-var date = new Date();
-var month = date.getMonth();
-var month_english =  month_english_list[month];
-var eng = document.getElementById("eng");
-eng.innerHTML = month_english;
+if($('.next').length){
+  const month_english_list = ['January.','February','March','April','May','June','July','August','September','October','November','December'];
+  var date = new Date();
+  var month = date.getMonth();
+  var month_english =  month_english_list[month];
+  var eng = document.getElementById("eng");
+  eng.innerHTML = month_english;
+
+}else{
+  const month_english_list = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var date = new Date();
+  var month = date.getMonth()+1;
+  if(month == 12){
+    month = 0;
+  }
+  var month_english =  month_english_list[month];
+  var eng = document.getElementById("eng");
+  eng.innerHTML = month_english;
+};
 });
 </script>
 
@@ -51,9 +64,9 @@ eng.innerHTML = month_english;
 <div class="month_button">
 <%= form_tag("/event/group/#{current_user.id}") do%>
   <% if params[:next_month] == nil then %>
-    <input type="submit" name="next_month" value="▶︎">
+    <input class="next" type="submit" name="next_month" value="▶︎">
   <% else %>
-    <input type="submit" name="this_month" value="◀︎">
+    <input class="this" type="submit" name="this_month" value="◀︎">
   <% end %>
 <% end %>
 </div>
@@ -116,7 +129,7 @@ eng.innerHTML = month_english;
 
     <% if c.strftime('%m') == month then %>
       <% if count == 0 then %>
-        <p class="free">全員 暇!!!!</p>
+        <img class="free" src="/assets/aicon.png">
       <% elsif count <= 1 %>
         <% busy.each do |busy|%>
           <p id="1" color="red"><%= busy %></p>
@@ -130,7 +143,7 @@ eng.innerHTML = month_english;
 
     <% @group_event.each do |group_event|%>
       <% if group_event.date.strftime("%Y-%m-%d") == c.strftime("%Y-%m-%d") then %>
-        <%= link_to("#{group_event.group_event}", "/event/#{group_event.id}/group_show")%><br>
+        <div class="group"><%= link_to("#{group_event.group_event}", "/event/#{group_event.id}/group_show")%></div><br>
       <% end %>
     <% end %>
 
@@ -142,16 +155,13 @@ eng.innerHTML = month_english;
   <% d = d + 1.week %>
 <% end %>
 
-<!-- <script type="text/javascript">
+ <script type="text/javascript">
 $(function() {
-$('td:has(.free)').css({background:'#63513D'});
-if ("body:has(.darkmode)") {
-  $("td:has(.free)").css({color:'white'});
-  $(".free").css({color:'white'});
-}else if("body:has(.lightmode)"){
-  $("td:has(.free)").css({color:'black'});
-  $(".free").css({color:'black'});
-}
+  if($('.group').length){
+    $('td:has(.group)').css({background:'#00ff7f'});
+    $("td:has(.group)").css({color:'#63513D'});
+    $('td:has(.group)').css("border", "#00ff7f 1px solid");
+  };
 });
-</script> -->
+</script>
 </table>

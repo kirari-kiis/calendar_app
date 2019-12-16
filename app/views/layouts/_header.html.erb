@@ -2,7 +2,7 @@
 <header class="navbar navbar-light "  id="head"><!--navbar navbar-fixed-top <!--navbar-inverse-->
   <div class="container">
 
-    <%= link_to "暇人-himanchu-", root_path, id: "logo" %>
+     <%= link_to image_tag('logo.png'), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right" id="menu">
 
@@ -20,12 +20,12 @@
 	          <li><%= link_to "グループ", '/event/group' %></li>
             <li class="divider"></li>
             <li>
-              <%= link_to "ログアウト", logout_path, method: :delete %>
+              <%= link_to "Log out", logout_path, method: :delete %>
             </li>
           </ul>
         </li>
         <% else %>
-        <li><%= link_to "ログイン", login_path %></li>
+        <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
     </nav>

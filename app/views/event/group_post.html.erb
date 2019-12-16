@@ -1,15 +1,17 @@
-<br><br><br>グループ予定追加<br><br>
+<br><br><br><h1>グループ予定追加</h1><br><br>
+<div class="edit">
 <%= form_tag("/event/group_post_create") do%>
-
-予定
+<br><br>
+<p>予定</p>
 <input type="text" name="group_event"><br>
-日付
+<p>日付</p>
 <input type="date" name="date"><br>
-時間
-<input type="time" name="time"><br><br>
+<p>時間</p>
+<input type="time" name="time"><br>
 
-詳細<br>
-<textarea name="description"></textarea><br><br>
-<input type="submit" value="追加"><br><br>
+<p>詳細</p>
+<textarea name="description"></textarea><br>
+<input type="submit" value="追加"><br>
 <%= link_to("戻る", "/event/group")%>　
 <%end%>
+</div>
