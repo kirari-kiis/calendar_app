@@ -103,7 +103,7 @@ header > a{
 #eng{
   position: relative;
   height: 140px;
-  width: 380px;
+  display: inline-block;
   font-size: 90px;
   color:#63513D;
   left: 7%;
