@@ -82,11 +82,12 @@
   /* 'Titillium Web' */
 
 
-h1, h2, p, tr, td, a, i{
+h1, h2, p, tr,  td, a, i{
   font-family:  'Titillium Web' ,'Noto Sans JP', sans-serif ;
   color: #63513D;
   margin: 0 0;
 }
+
 
 header > a{
   color: white;
@@ -175,12 +176,11 @@ header > a{
 
 
 #user {
-  position: relative;
+  position: absolute;
   font-size: 40px;
   /* color: white; */
-  margin: 0 0;
-  top: 55px;
-  left: 33%;
+  top: 310px;
+  margin-left: 70%;
 }
 
 /*
@@ -322,3 +322,4 @@ i{
   width:  60%;               /* 幅指定 */
   height: 80%;                /* 高さ指定 */
 }
+

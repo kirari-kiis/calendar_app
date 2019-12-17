@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 th{
-  width:150px; height:100px;
+  width:160px; height:160px;
   margin:5px; padding:10px; 
   text-align:center;
   border-radius: 50%;
@@ -28,7 +28,7 @@ color: rgb(0,0,255, );
 td:nth-child(1) {
 // background-color:  #e4c4db;
 //color: #ffffff;
-color: rgb(255,0,0, );
+color: rgb(255,0,0, )!important;
 }
 
 td:nth-child(1) a{
@@ -43,7 +43,7 @@ color: rgb(0,0,255, );
 td:nth-child(7) {
 //background-color: #b2d6d4;
 //color: #ffffff;
-color: rgb(0,0,255, );
+color: rgb(0,0,255, )!important;
 }
 
 
@@ -61,12 +61,13 @@ background-color: transparent;
 td{
   text-align:center;
   width:150px; height:150px;
-  margin:5px; padding:10px; 
+  margin:5px; padding:12px; 
   border-radius: 50%;    
   vertical-align : top;
   // background-color: #c9c9c9;
   border-style: solid 2px;
   border-color: none;
+  font-size: 25px;
 }
 
 
@@ -100,22 +101,24 @@ font-size: 30px;
  }
 
  #2{
+   position: absolute;
   font-size: 10px;
+  bottom: 10px;
 }
 
 .group > a{
   z-index: 5;
   font-size: 15px;
   text-align: center;
-  color: #63513D;
+  color: white;
   position: relative;
   
-  bottom: 30px;
+  bottom: 5px;
   text-decoration: none;
 }
 
 .group > a:hover{
-  color: rgb(183, 171, 112);
+  color: rgb(125, 125, 125);
 }
 
 .group{
@@ -126,5 +129,5 @@ font-size: 30px;
   height: 20px;
   width:20px;
   position: relative;
-  bottom: 10px;
+  bottom: 0px;
 }
