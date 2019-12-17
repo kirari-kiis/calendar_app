@@ -69,7 +69,7 @@ class EventController < ApplicationController
 
   def group_update
     @group_event = GroupEvent.find_by(id: params[:id])
-    event = Event.where(user_id: current_user.id)
+    event = Event.all
 
     event.each do |event|
       if event.event == @group_event.group_event then

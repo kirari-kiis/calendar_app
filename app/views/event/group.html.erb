@@ -1,6 +1,23 @@
 <div class="data">
   <% today = Date.today%>
 
+  <% free_user_id = []%>
+  <% i = 0 %>
+  <% @users.each do |user| %>
+  <% free_user_id.push(user.id)%>
+  <% end %>
+  <% max = free_user_id.count %>
+
+  <% @events.each do |evant|%>
+    <% if evant.start_date == today then %>
+      <% if free_user_id.include?(evant.user_id) then %>
+        <% user = User.find_by(id: evant.user_id)%>
+        <% free_user_id.delete(user.id)%>
+        <% i = i + 1 %>
+      <% end %>
+    <% end %>
+  <% end %>
+
   <% if params[:next_month] != nil then %>
     <% today = Date.today.next_month %>
   <% end %>
@@ -13,23 +30,8 @@
   </div>
 </div>
 <!--  today = Date.today.nextmonth -->
-<% free_user_id = []%>
-<% i = 0 %>
-<% @users.each do |user| %>
-<% free_user_id.push(user.id)%>
-<% end %>
-<% max = free_user_id.count %>
 
 
-<% @events.each do |evant|%>
-<% if evant.start_date == today then %>
-  <% if free_user_id.include?(evant.user_id) then %>
-    <% user = User.find_by(id: evant.user_id)%>
-    <% free_user_id.delete(user.id)%>
-    <% i = i + 1 %>
-  <% end %>
-<% end %>
-<% end %>
 <div class="english">
 <p id="eng">  </p>
 <script type="text/javascript">
@@ -63,9 +65,8 @@ if($('.next').length){
 <p id="user">Group schedule</p>
 <!--月の移動ボタン-->
 <div class="month_button">
-  
-<%= form_tag("/event/group/#{current_user.id}") do%>
-  <input type="hidden" name="hidden">
+
+<%= form_tag("/event/group") do%>
   <% if params[:next_month] == nil then %>
     <input class="next" type="submit" name="next_month" value="▶︎">
   <% else %>
@@ -81,10 +82,10 @@ if($('.next').length){
 <% elsif i == max %>
 <font color="blue">今日はみんな予定があるそうです。</font><br>
 <% else %>
-今日は<br>
+今日は
 <% free_user_id.each do |free_user_id| %>
   <% free_user_name = User.find_by(id: free_user_id)%>
-    <font color="orange"><%=  free_user_name.name %></font><br>
+    <font color="orange"><%=  free_user_name.name %></font>,
 <% end %>
 の予定が空いています！
 <% end %>

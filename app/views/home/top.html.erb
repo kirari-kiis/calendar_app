@@ -37,7 +37,6 @@
 
   <div class="month_button">
   <%= form_tag("/home/top/#{current_user.id}") do%>
-    <input type="hidden" name="hidden">
     <% if params[:next_month] == nil then %>
       <input class="next" type="submit" name="next_month" value="▶︎">
     <% end %>
