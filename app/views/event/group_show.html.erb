@@ -22,7 +22,7 @@
       <% end %>
       <br>
 
-      <%= link_to("編集", "/event/#{@group_event.id}/group_edit")%>
+      <%= link_to("編集", "/event/#{@group_event.id}/group_edit")%>　
       <%= link_to("削除", "/event/#{@group_event.id}/group_event_destroy")%><br><br>
 
       <%= form_tag("/event/join/#{@group_event.id}") do %>
