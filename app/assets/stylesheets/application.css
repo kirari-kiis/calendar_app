@@ -324,3 +324,6 @@ i{
   height: 80%;                /* 高さ指定 */
 }
 
+.alert{
+  margin-top: 50px;
+}
