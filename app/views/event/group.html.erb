@@ -136,13 +136,13 @@ if($('.next').length){
       <% if count == 0 then %>
         <img class="free" src="/assets/hiragana.png">
       <% elsif count <= 1 %>
-        <% busy.each do |busy|%>
-          <p id="1" color="red"><%= busy %></p>
-        <% end %>
+
+          <p id="1" color="red">　</p>
+
       <% elsif count <= 2 %>
-        <% busy.each do |busy_user|%>
-          <p id="2" color="blue"><%= busy_user %></p>
-        <% end %>
+
+          <p id="2" color="blue">　</p>
+
       <% end %>
     <% end %>
 
