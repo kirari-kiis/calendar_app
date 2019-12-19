@@ -6,7 +6,7 @@
 日付
 <input type="date" name="date" value=<%= @group_event.date %>><br>
 時間
-<input type="time" name="time" value="<%= @group_event.time.strftime("%H:%M") %>"><br>
+<input type="time" name="time" <% if @group_event.time != nil then %>value ="<%= @group_event.time.strftime("%H:%M")%>"<% end %>"><br>
 詳細<br>
 <textarea name="description"><%= @group_event.description %></textarea><br><br>
 <input type="submit" value="変更する"><br>

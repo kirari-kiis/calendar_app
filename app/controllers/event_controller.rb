@@ -30,6 +30,8 @@ class EventController < ApplicationController
                                    description: params[:description],
                                    time: params[:time])
     @group.save
+
+    flash[:success] = "イベントを提案しました"
     redirect_to("/event/group")
   end
 
@@ -96,6 +98,7 @@ class EventController < ApplicationController
 
     @group_event.save
 
+    flash["success"] = "イベントの提案を変更しました"
     redirect_to("/event/#{@group_event.id}/group_show")
 
   end
@@ -128,7 +131,7 @@ class EventController < ApplicationController
     end
     @group_event.destroy
 
-    flash[:danger] = "予定を削除しました"
+    flash[:danger] = "イベントの提案を取り消しました"
     redirect_to("/event/group")
   end
 
@@ -160,8 +163,8 @@ class EventController < ApplicationController
                              join: 1)
       event_new.save
 
-      flash[:notice] = "イベントに参加しました"
-      redirect_to("/event/group")
+      flash[:success] = "イベントに参加しました"
+      redirect_to("/event/#{group_event.id}/group_show")
     else
       flash[:danger] = "参加済です"
       redirect_to("/event/#{group_event.id}/group_show")
