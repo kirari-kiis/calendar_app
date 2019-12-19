@@ -1,2 +1,3 @@
 class GroupEvent < ApplicationRecord
+
 end
