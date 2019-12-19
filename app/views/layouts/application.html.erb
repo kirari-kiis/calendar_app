@@ -23,14 +23,14 @@
      <script type="text/javascript">
       $(function() {
         $('td:has(.free)').css("border", "#63513D 1px solid");
-        $('td:has(.free)').css({color:"#63513D"});
+        $('td:has(.free)').css({background:"#63513D"});
       if ($('.darkmode').length) {
         
-        
+        $('td:has(.free)').css({color:"#0f1927"});
         $(".darkmode").css({background:'#0f1927'});
         $(".navbar").css({background:'#0f1927'});
         }else if($('.lightmode').length){
-          
+        $('td:has(.free)').css({color:"#CCCCCC"});
         $(".lightmode").css({background:'#CCCCCC'});
         $(".navbar").css({background:'#CCCCCC'});
         }
@@ -61,20 +61,22 @@
             $('body').removeClass("darkmode").addClass("lightmode");
             $(this).removeClass("isActive").addClass("notActive");
             $(this).html("<i class='far fa-moon fa-2x'></i>");
-            
-            $('td:has(.free)').css({color:"#63513D"});
+            $("td:has(.free)").css({background:'#63513D'});
+            $('td:has(.free)').css({color:"#CCCCCC"});
             $("td:has(.group)").css({color:'white'});
             $("body").css({background:'#CCCCCC'});
             $(".navbar").css({background:'#CCCCCC'});
+            $("td:has(.group)").css({background:'#0fdabb'});
           }else if ($('.lightmode').length) {
             $('body').removeClass("lightmode").addClass("darkmode");
             $(this).removeClass("notActive").addClass("isActive");
             $(this).html("<i class='fas fa-moon fa-2x'></i>");
-            
-            $('td:has(.free)').css({color:"#63513D"});
+            $("td:has(.free)").css({background:'#63513D'});
+            $('td:has(.free)').css({color:"#0f1927"});
             $("td:has(.group)").css({color:'white'});
             $("body").css({background:'#0f1927'});
             $(".navbar").css({background:'#0f1927'});
+            $("td:has(.group)").css({background:'#0fdabb'});
             }
             setMyCookie();
           });
