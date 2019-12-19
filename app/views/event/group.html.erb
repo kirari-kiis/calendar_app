@@ -148,7 +148,9 @@ if($('.next').length){
 
     <% @group_event.each do |group_event|%>
       <% if group_event.date.strftime("%Y-%m-%d") == c.strftime("%Y-%m-%d") then %>
-        <div class="group"><%= link_to("#{group_event.group_event}", "/event/#{group_event.id}/group_show")%></div><br>
+        <% if group_event.date.strftime("%m") == month then %>
+          <div class="group"><%= link_to("#{group_event.group_event}", "/event/#{group_event.id}/group_show")%></div><br>
+        <% end %>
       <% end %>
     <% end %>
 

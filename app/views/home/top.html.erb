@@ -93,7 +93,9 @@
 
       <% @events.each do |event|%>
         <% if event.start_date.strftime("%Y-%m-%d") == c.strftime("%Y-%m-%d") then %>
-          <%= link_to("#{event.event}", "/event/#{event.start_date}/#{event.user_id}/show") %><br>
+          <% if event.start_date.month == month then %>
+            <%= link_to("#{event.event}", "/event/#{event.start_date}/#{event.user_id}/show") %><br>
+          <% end %>
         <% end %>
       <% end %>
     </td>

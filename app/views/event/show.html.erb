@@ -3,17 +3,22 @@
 <% @event.each do |event|%>
   <% @user.each do |user|%>
     <% if event.user_id == user.id then %>
-      イベント: <%= event.event%><br>
-      日付　　: <%= event.start_date.strftime("%Y年%m月%d日")%><br>
-      時間　　: <% if event.time %>
-               <%= event.time.strftime("%H:%M")%>
-               <% else %>
-               設定されていません。
-               <% end %><br><br>
-      詳細<br>
+      <b>イベント:</b> <%= event.event%><br>
+      <b>日付　　:</b> <%= event.start_date.strftime("%Y年%m月%d日")%><br>
+      <b>時間　　:</b> <% if event.time %>
+                      <%= event.time.strftime("%H:%M")%>
+                      <% else %>
+                        設定されていません。
+                      <% end %><br><br>
+      <b>詳細</b><br>
       <%= event.description%><br><br><br>
-      <%= link_to("編集", "/event/#{event.id}/edit")%>　
-      <%= link_to("削除", "/event/#{event.id}/destroy", {method:"post"})%><br><br>
+
+      <% if event.join == nil then %>
+        <%= link_to("編集", "/event/#{event.id}/edit")%>　
+        <%= link_to("削除", "/event/#{event.id}/destroy", {method:"post"})%><br><br>
+      <% else %>
+        <%= link_to("イベントから抜ける", "/event/#{event.id}/destroy", {method:"post"})%><br><br>
+      <% end %>
       ---------------------------------------<br><br>
     <% end %>
   <% end%>
