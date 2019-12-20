@@ -1,4 +1,5 @@
 <br><br><br>
+<div class="posi">
 <h2><%= @title.start_date.strftime("%d日")%></h2>
 <% @event.each do |event|%>
   <% @user.each do |user|%>
@@ -24,3 +25,4 @@
   <% end%>
 <% end %>
 <%= link_to("戻る", "/home/top")%>　
+</div>

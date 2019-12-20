@@ -331,3 +331,13 @@ i{
   /* margin-top: 50px; */
   width: 100%;
 }
+
+#gsanka{
+  width: 200px;
+}
+
+.posi{
+  position: absolute;
+  top: 110px;
+  left: 30px;
+}

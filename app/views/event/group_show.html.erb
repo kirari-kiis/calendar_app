@@ -1,4 +1,5 @@
 <br><br><br>
+<div class="posi">
 <h2><%= @group_event.date.strftime("%d日")%></h2>
       <b>イベント:</b> <%= @group_event.group_event%><br>
       <b>日付　　:</b> <%= @group_event.date.strftime("%Y年%m月%d日")%><br>
@@ -26,6 +27,7 @@
       <%= link_to("削除", "/event/#{@group_event.id}/group_event_destroy")%><br><br>
 
       <%= form_tag("/event/join/#{@group_event.id}") do %>
-        <input type="submit" value="参加">
+        <input id="gsanka"type="submit" value="参加">
       <% end %>
 <%= link_to("戻る", "/event/group")%>
+</div>
