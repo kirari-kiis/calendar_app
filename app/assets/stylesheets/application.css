@@ -16,7 +16,7 @@
 
 
  #logo{
-     color: #63513D;
+     color: #907758;
      position: fixed;
      left: 7%;
      padding: 0 0;
@@ -30,7 +30,7 @@
   }
   
  #menu a{
-    color: #63513D;
+    color: #907758;
     font-family: 'Titillium Web','Noto Sans JP', sans-serif;
  }
 
@@ -85,8 +85,9 @@
 
 h1, h2, p, tr,  td, a, i{
   font-family:  'Titillium Web' ,'Noto Sans JP', sans-serif ;
-  color: #63513D;
+  color: #907758;
   margin: 0 0;
+  /* color: #63513D; */
 }
 
 
@@ -107,7 +108,7 @@ header > a{
   height: 140px;
   display: inline-block;
   font-size: 90px;
-  color:#63513D;
+  color:#907758;
   left: 7%;
   float: left;
 }
@@ -269,7 +270,7 @@ i{
     display: inline-block;
     text-decoration: none;
     background: none;/*ボタン色*/
-    color: #63513D;
+    color: #907758;
     font-size: 30px;
     border: none;
     outline:none;
@@ -297,7 +298,7 @@ i{
     display: inline-block;
     text-decoration: none;
     background: none;/*ボタン色*/
-    color: #63513D;
+    color: #907758;
     font-size: 30px;
     border: none;
     outline:none;
