@@ -84,7 +84,8 @@ class EventController < ApplicationController
 
     @event.save
 
-    redirect_to("/home/top")
+    flash["success"] = "イベントを変更しました"
+    redirect_to("/event/#{@event.start_date}/#{@event.user_id}/show")
   end
 
   def group_update
