@@ -1,13 +1,13 @@
 <br><br><br>
 <h2><%= @group_event.date.strftime("%d日")%></h2>
-      イベント: <%= @group_event.group_event%><br>
-      日付　　: <%= @group_event.date.strftime("%Y年%m月%d日")%><br>
-      時間　　: <% if @group_event.time %>
+      <b>イベント:</b> <%= @group_event.group_event%><br>
+      <b>日付　　:</b> <%= @group_event.date.strftime("%Y年%m月%d日")%><br>
+      <b>時間　　:</b> <% if @group_event.time %>
                <%= @group_event.time.strftime("%H:%M")%>
                <% else %>
                設定されていません。
                <% end %><br><br>
-      詳細<br>
+      <b>詳細</b><br>
       <%= @group_event.description%><br><br>
 
       <font color="orange">参加者</font><br>

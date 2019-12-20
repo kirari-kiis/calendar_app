@@ -8,13 +8,15 @@
   <% end %>
   <% max = free_user_id.count %>
 
-  <% @events.each do |evant|%>
-    <% if evant.start_date == today then %>
-      <% if free_user_id.include?(evant.user_id) then %>
-        <% user = User.find_by(id: evant.user_id)%>
+  <% @events.each do |event|%>
+    <% if event.start_date == today then %>
+    <% if event.join != 1%>
+      <% if free_user_id.include?(event.user_id) then %>
+        <% user = User.find_by(id: event.user_id)%>
         <% free_user_id.delete(user.id)%>
         <% i = i + 1 %>
       <% end %>
+    <% end %>
     <% end %>
   <% end %>
 

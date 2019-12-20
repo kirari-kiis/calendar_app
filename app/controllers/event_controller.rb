@@ -8,9 +8,18 @@ class EventController < ApplicationController
                        description: params[:description],
                        time: params[:time],
                        user_id: current_user.id)
-    @event.save
-    flash[:success] = "予定を追加しました"
-    redirect_to("/home/top")
+
+    if @event.event == "" then
+      flash[:danger] = "イベントを設定してください"
+      redirect_to("/event/post")
+    elsif @event.start_date == nil then
+      flash[:danger] = "日付を設定してください"
+      redirect_to("/event/post")
+    else
+      @event.save
+      flash[:success] = "予定を追加しました"
+      redirect_to("/home/top")
+    end
 
   end
 
@@ -25,14 +34,18 @@ class EventController < ApplicationController
   end
 
   def group_post_create
-    if params[:date] == nil then
+    @group = GroupEvent.new(group_event: params[:group_event],
+                                   date: params[:date],
+                                   description: params[:description],
+                                   time: params[:time])
+
+    if @group.date == nil then
       flash[:danger] = "日付を設定してください"
-      redirect_to("/event/#{@group_event.id}/group_edit")
+      redirect_to("/event/group_post")
+    elsif @group.group_event == "" then
+      flash[:danger] = "イベントを設定してください"
+      redirect_to("/event/group_post")
     else
-      @group = GroupEvent.new(group_event: params[:group_event],
-                                     date: params[:date],
-                                     description: params[:description],
-                                     time: params[:time])
       @group.save
 
       flash[:success] = "イベントを提案しました"

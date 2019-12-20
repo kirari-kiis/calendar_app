@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "ようこそ！"
       redirect_to("/home/top/#{current_user.id}")
     else
       render 'new'
