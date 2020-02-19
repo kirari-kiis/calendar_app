@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(version: 2019_12_13_150042) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    
+    t.time "time"
     t.integer "join"
   end
 
   create_table "group_events", force: :cascade do |t|
     t.string "group_event"
     t.date "date"
-    
+    t.time "time"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
