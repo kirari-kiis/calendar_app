@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.5.0'
+ruby '2.5.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>=5.2.3' ,'<6.0.0'
 gem 'bootstrap-sass', '>=3.4.1'
@@ -29,7 +29,8 @@ gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'sqlite3', '1.3.13'
+  gem 'sqlite3', groups: %w(test development), require: false
+  gem 'pg', groups: %w(production), require: false
   gem 'byebug', '9.0.6' ,platforms: :mri
 
 end
