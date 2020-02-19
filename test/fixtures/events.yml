@@ -2,12 +2,16 @@
 
 one:
   event: MyString
-  start_date: MyString
-  description: MyString
+  start_date: 2020-02-19
+  time: 2020-02-19 17:52:51
+  description: MyText
   user_id: 1
+  join: 1
 
 two:
   event: MyString
-  start_date: MyString
-  description: MyString
+  start_date: 2020-02-19
+  time: 2020-02-19 17:52:51
+  description: MyText
   user_id: 1
+  join: 1
