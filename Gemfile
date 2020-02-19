@@ -56,3 +56,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'js_cookie_rails'
+gem 'rails_12factor', group: :production
